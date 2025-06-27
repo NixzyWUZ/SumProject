@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dubtff2myfgt7"]
 
-[ext_resource type="Script" path="res://Script/player.gd" id="1_au4o3"]
+[ext_resource type="Script" path="res://Script/Caracthers/player.gd" id="1_au4o3"]
 [ext_resource type="Texture2D" uid="uid://bfci7vs3h7x1w" path="res://Player/boy.png" id="1_yqolh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl5v4"]
@@ -155,6 +155,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+position = Vector2(160, 128)
 collision_layer = 9
 slide_on_ceiling = false
 script = ExtResource("1_au4o3")

@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs5l4socukwqr"]
+
+[ext_resource type="Script" path="res://Script/menu.gd" id="1_nwlpk"]
+[ext_resource type="Theme" uid="uid://co8vb3b5ffroo" path="res://UI/Button_theme.tres" id="2_x0inn"]
+[ext_resource type="AudioStream" uid="uid://c8qmnqpip6rga" path="res://audios/bell.mp3" id="3_y85db"]
+[ext_resource type="FontFile" uid="uid://lgepog56kocn" path="res://font/PixelOperator-Bold.ttf" id="4_88hrm"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwlpk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0581104, 0.0185669, 0.0739163, 1)
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Play" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 256.0
+offset_right = 240.0
+offset_bottom = 304.0
+theme = ExtResource("2_x0inn")
+text = "Play"
+
+[node name="Credits" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 464.0
+offset_bottom = 304.0
+theme = ExtResource("2_x0inn")
+text = "Credits
+"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 320.0
+offset_right = 352.0
+offset_bottom = 352.0
+theme = ExtResource("2_x0inn")
+text = "Quit
+"
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y85db")
+
+[node name="Credits_panel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Credits_panel"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits_panel"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_88hrm")
+text = "================Credits=================
+
+>HighLevel
+
+>Undertale for SFX
+
+É isso :0
+
+
+
+
+=========================================="
+
+[node name="back" type="Button" parent="Credits_panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_x0inn")
+text = "Back
+"
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits_panel/back" to="." method="_on_back_pressed"]
